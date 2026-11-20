@@ -1,0 +1,304 @@
+/* Roman Urdu: File frontend/src/styles/pages.css ka kaam project ki UI, backend ya styling chalana hai. Detailed har-line guide CODE-LINE-BY-LINE-ROMAN-URDU.md mein hai. */
+/* Roman Urdu Guide: CSS properties mein direct values hain. UI ka original design same rakha gaya hai. */
+/* ==========================================================================
+   PAGE STYLES (shop, product, bag, checkout, forms, modal, bag drawer).
+   All scoped under .az-store so the admin portal is unaffected.
+   ========================================================================== */
+.az-store .az-small { font-size: 0.875rem; }
+.az-store .az-narrow { max-width: 720px; }
+.az-store .az-prose p + p { margin-top: 16px; }
+.az-store .az-row { display: flex; justify-content: space-between; gap: 16px; }
+.az-store .az-row--total { border-top: 1px solid #000000; padding-top: 12px; font-weight: 500; }
+.az-store .az-two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Shop */
+.az-store .az-toolbar { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; margin-bottom: 32px; }
+.az-store .az-toolbar__search { display: flex; gap: 8px; flex: 1 1 320px; max-width: 520px; }
+.az-store .az-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+
+/* Product details */
+.az-store .az-pdp { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+.az-store .az-pdp__main { aspect-ratio: 4 / 5; background: #f1f1f1; overflow: hidden; }
+.az-store .az-pdp__main img, .az-store .az-pdp__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.az-store .az-pdp__thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 8px; }
+.az-store .az-pdp__thumbs button { aspect-ratio: 4 / 5; padding: 0; border: 1px solid #d9d9d9; background: #f1f1f1; }
+.az-store .az-pdp__thumbs .is-on { border-color: #000000; outline: 1px solid #000000; }
+.az-store .az-pdp__info { display: grid; gap: 16px; position: sticky; top: calc(76px + 24px); }
+.az-store .az-pdp__price { font-size: 1.25rem; }
+.az-store .az-opts { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.az-store .az-opts legend { width: 100%; margin-bottom: 8px; font-size: 0.875rem; padding: 0; }
+.az-store .az-chip { min-width: 44px; min-height: 44px; padding: 0 16px; border: 1px solid #000000; background: #ffffff; color: #000000; }
+.az-store .az-chip.is-on, .az-store .az-chip:hover { background: #000000; color: #ffffff; }
+
+/* Quantity stepper */
+.az-store .az-qty { display: inline-flex; align-items: center; border: 1px solid #000000; margin-top: 8px; width: fit-content; }
+.az-store .az-qty button { width: 40px; height: 40px; background: none; border: 0; display: grid; place-items: center; }
+.az-store .az-qty span { min-width: 32px; text-align: center; }
+.az-store .az-qty--lg button { width: 44px; height: 44px; }
+
+/* Bag page, drawer and checkout */
+.az-store .az-cart { display: grid; grid-template-columns: 1.6fr 1fr; gap: 64px; align-items: start; }
+.az-store .az-summary { display: grid; gap: 12px; border: 1px solid #000000; padding: 24px; }
+.az-store .az-lines { list-style: none; margin: 0; padding: 0; }
+.az-store .az-line-item { display: grid; grid-template-columns: 72px 1fr auto; gap: 16px; padding: 16px; border-bottom: 1px solid #d9d9d9; }
+.az-store .az-line-item__img { aspect-ratio: 4 / 5; background: #f1f1f1; }
+.az-store .az-line-item__img img { width: 100%; height: 100%; object-fit: cover; }
+.az-store .az-line-item__end { text-align: right; display: grid; align-content: space-between; justify-items: end; }
+.az-store .az-lines--page .az-line-item { grid-template-columns: 96px 1fr auto; padding-inline: 0; }
+.az-store .az-bagdrawer { position: fixed; inset: 0 0 0 auto; z-index: 61; width: min(100vw, 440px); background: #ffffff; display: flex; flex-direction: column; animation: az-slide-r 420ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+.az-store .az-bagdrawer__head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #d9d9d9; }
+.az-store .az-bagdrawer__head button { width: 44px; height: 44px; background: none; border: 0; }
+.az-store .az-bagdrawer .az-lines { flex: 1; overflow-y: auto; overscroll-behavior: contain; }
+.az-store .az-bagdrawer__foot { display: grid; gap: 12px; padding: 16px; border-top: 1px solid #000000; padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+@keyframes az-slide-r { from { transform: translateX(100%); } to { transform: none; } }
+
+/* Forms */
+.az-store .az-form { display: grid; gap: 24px; }
+.az-store .az-form .az-btn { width: fit-content; }
+
+/* Gallery */
+.az-store .az-gallery { columns: 4; column-gap: 16px; }
+.az-store .az-gallery img { width: 100%; margin-bottom: 16px; background: #f1f1f1; }
+
+/* Modal */
+.az-store .az-modal-scrim { position: fixed; inset: 0; z-index: 70; background: rgba(0, 0, 0, 0.55); display: grid; place-items: center; padding: 16px; }
+.az-store .az-modal { position: relative; background: #ffffff; width: min(480px, 100%); padding: 32px; display: grid; gap: 16px; }
+.az-store .az-modal__close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; background: none; border: 0; }
+.az-store .az-table { width: 100%; border-collapse: collapse; }
+.az-store .az-table th, .az-store .az-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #d9d9d9; }
+
+/* WhatsApp */
+.az-store .az-whatsapp { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 40; width: 52px; height: 52px; display: grid; place-items: center; background: #000000; color: #ffffff; border: 1px solid #ffffff; border-radius: 50%; }
+
+@media (max-width: 1100px) { .az-store .az-grid { grid-template-columns: repeat(3, 1fr); } .az-store .az-gallery { columns: 3; } }
+@media (max-width: 800px) {
+  .az-store .az-pdp, .az-store .az-cart { grid-template-columns: 1fr; gap: 32px; }
+  .az-store .az-pdp__info { position: static; }
+  .az-store .az-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+  .az-store .az-gallery { columns: 2; }
+}
+@media (max-width: 520px) { .az-store .az-two { grid-template-columns: 1fr; } .az-store .az-toolbar__search { max-width: none; } }
+
+/* Roman Urdu: Sirf product detail screen ko provided reference jaisa banaya hai. */
+.az-pdp { align-items:start; gap:clamp(30px,5vw,80px); }
+.az-pdp__main { background:#f7f7f5; overflow:hidden; }
+.az-pdp__main img { width:100%; height:100%; object-fit:cover; }
+.az-pdp__thumbs { display:flex; gap:11px; overflow-x:auto; padding-top:14px; }
+.az-pdp__thumbs button { border:1px solid transparent; padding:2px; flex:0 0 78px; background:white; cursor:pointer; }
+.az-pdp__thumbs button.is-on { border-color:#262626; }
+.az-pdp__thumbs img { width:100%; aspect-ratio:3/4; object-fit:cover; }
+.az-pdp__info h1 { font-size:clamp(27px,2.4vw,37px); letter-spacing:-.7px; margin:12px 0 14px; }
+.az-pdp__badge { display:inline-block; font-size:11px; color:#4d8054; background:#edf5ed; border-radius:20px; padding:4px 9px; }
+.az-product-availability { color:#2f934d; font-size:13px; margin:12px 0; }
+.az-pdp__cart-btn { width:100%; margin-top:12px; }
+.az-pdp__accordions { margin-top:32px; border-top:1px solid #d9dce0; }
+.az-pdp__accordions button { display:flex; width:100%; align-items:center; justify-content:space-between; background:none; border:0; border-bottom:1px solid #d9dce0; padding:17px 0; cursor:pointer; font-size:12px; font-weight:700; letter-spacing:.5px; }
+.az-pdp__accordions p { color:#5f6670; font-size:13px; line-height:1.8; padding:12px 0 18px; }
+.az-pdp__note { margin-top:20px; border-radius:12px; background:#f3f4f1; padding:18px 20px; font-size:13px; }
+.az-pdp__note p { margin:7px 0 0; color:#5d6467; line-height:1.7; }
+
+/* Roman Urdu: Product details ka buy row reference ke mutabiq. */
+.az-store .az-pdp__buy {display:flex;align-items:stretch;gap:12px;margin-top:6px}
+.az-store .az-pdp__buy .az-qty {flex-shrink:0}
+.az-store .az-pdp__buy .az-pdp__cart-btn {flex:1;margin:0;min-height:48px}
+.az-store .az-pdp__reviews {font-size:19px;letter-spacing:2px;color:#aaa;margin:0}
+.az-store .az-pdp__reviews span {font-size:12px;letter-spacing:0;color:#777;margin-left:8px}
+.az-store .az-pdp__urgency {font-size:12px;color:#ec424e;margin-top:3px}
+.az-store .az-pdp__urgency>div {height:3px;background:#e9e9e9;margin-top:9px}
+.az-store .az-pdp__urgency>div span {display:block;height:100%;background:linear-gradient(90deg,#ff3c7a,#ffad00)}
+/* Roman Urdu: Checkout ka layout sirf checkout page ko affect karta hai. */
+.az-store .az-checkout {display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.83fr);min-height:100vh;border-top:1px solid #e6e6e6;font-family:Arial,sans-serif}
+.az-store .az-checkout__left {padding:35px clamp(24px,7vw,110px) 70px max(24px,calc((100vw - 1300px)/2));background:#fff}
+.az-store .az-checkout__right {background:#f7f7f7;border-left:1px solid #e4e4e4;padding:50px max(24px,calc((100vw - 1350px)/2)) 70px 40px}
+.az-store .az-checkout__brand {display:block;text-decoration:none;color:#111;font-family:Georgia,serif;letter-spacing:2px;font-size:23px;margin-bottom:35px}
+.az-store .az-checkout__brand small {display:block;font:10px Arial,sans-serif;letter-spacing:3px;margin-top:5px}
+.az-store .az-checkout__form {display:grid;gap:14px;max-width:610px}
+.az-store .az-checkout__form h2 {font-size:20px;font-weight:650;margin:17px 0 2px}
+.az-store .az-checkout__heading {display:flex;justify-content:space-between;align-items:center}
+.az-store .az-checkout__heading span {font-size:12px;color:#777}
+.az-store .az-checkout__form label {display:grid;gap:5px;font-size:12px;color:#555}
+.az-store .az-checkout__form input,.az-store .az-checkout__form select,.az-store .az-checkout__form textarea {border:1px solid #d8d8d8;border-radius:10px;background:#fff;min-height:49px;padding:13px 15px;font:14px Arial,sans-serif;width:100%}
+.az-store .az-checkout__form textarea {min-height:70px}
+.az-store .az-checkout__two {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.az-store .az-checkout__shipping {border:1px solid #222;border-radius:11px;padding:16px;display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.az-store .az-checkout__submit {width:100%;min-height:52px}
+.az-store .az-checkout__legal {color:#777;font-size:12px;line-height:1.6}
+.az-store .az-checkout__summary {max-width:520px}
+.az-store .az-checkout__line {display:flex;align-items:center;gap:15px;margin-bottom:17px;font-size:13px}
+.az-store .az-checkout__line>div:nth-child(2) {flex:1}
+.az-store .az-checkout__line p {color:#777;font-size:12px;margin:6px 0}
+.az-store .az-checkout__photo {position:relative;width:65px;height:75px;flex-shrink:0;border:1px solid #ddd;border-radius:9px;background:#fff}
+.az-store .az-checkout__photo img {width:100%;height:100%;object-fit:cover;border-radius:9px}
+.az-store .az-checkout__photo span {position:absolute;right:-7px;top:-9px;border-radius:50%;background:#333;color:#fff;padding:4px 7px;font-size:10px}
+.az-store .az-checkout__totals {border-top:1px solid #ddd;padding-top:14px}
+.az-store .az-checkout__totals p {display:flex;justify-content:space-between;font-size:13px;margin:13px 0}
+.az-store .az-checkout__totals .az-checkout__grand {font-size:20px;padding-top:12px;border-top:1px solid #ddd}
+.az-store .az-checkout__suggestions {border-top:1px solid #ddd;margin-top:25px;padding-top:15px}
+.az-store .az-checkout__suggestions h3 {font-size:16px;margin:0 0 15px}
+.az-store .az-checkout__suggestions a {display:flex;align-items:center;gap:13px;text-decoration:none;color:#111;border:1px solid #ddd;border-radius:12px;padding:10px;margin:10px 0;background:#fff;font-size:13px}
+.az-store .az-checkout__suggestions img {width:52px;height:62px;object-fit:cover;border-radius:6px}
+.az-store .az-checkout__suggestions a span:nth-child(2) {flex:1}
+.az-store .az-checkout__suggestions small {display:block;color:#777;margin-top:6px}
+.az-store .az-order-confirm {max-width:620px;text-align:center;margin:auto}
+.az-store .az-order-confirm__icon {display:grid;place-items:center;margin:0 auto 25px;background:#e8f7eb;color:#207c3a;border-radius:50%;width:70px;height:70px;font-size:33px}
+.az-store .az-order-confirm__receipt {display:grid;grid-template-columns:1fr 1fr;text-align:left;gap:16px;margin:32px 0;padding:28px;background:#f7f7f7;border-radius:12px}
+.az-store .az-service-grid {display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,100px)}
+.az-store .az-service-intro {padding:30px 0}.az-store .az-service-intro h1 {font-size:clamp(42px,5vw,70px);line-height:1.05;margin:15px 0 25px}
+.az-store .az-service-intro>p {color:#555;line-height:1.8}.az-store .az-service-points {margin-top:35px;border-top:1px solid #ddd}
+.az-store .az-service-points p {padding:15px 0;border-bottom:1px solid #ddd;font-size:14px;line-height:1.7}
+.az-store .az-service-form {background:#fafafa;border:1px solid #eee;padding:clamp(20px,4vw,45px)}
+.az-store .az-service-form h2 {font-size:27px}
+.az-store .az-bagdrawer__delivery {background:#e0f0df;color:#245a2d;text-align:center;padding:12px;margin-bottom:15px;font-size:12px}
+@media(max-width:800px){.az-store .az-checkout{grid-template-columns:1fr}.az-store .az-checkout__left,.az-store .az-checkout__right{padding:25px}.az-store .az-service-grid{grid-template-columns:1fr}.az-store .az-pdp__buy{flex-wrap:wrap}.az-store .az-pdp__buy .az-pdp__cart-btn{min-width:60%}}
+
+/* Roman Urdu: Cart drawer ki suggested products styling */
+.az-store .az-bagdrawer__suggest {padding:20px;border-top:1px solid #ddd;overflow:auto}
+.az-store .az-bagdrawer__suggest h3 {font-size:20px;text-align:center;margin:5px 0 18px}
+.az-store .az-bagdrawer__suggest-item {display:flex;align-items:center;gap:12px;background:#f6f6f7;border-radius:10px;padding:10px;margin-bottom:12px}
+.az-store .az-bagdrawer__suggest-item img {width:65px;height:85px;object-fit:cover}
+.az-store .az-bagdrawer__suggest-item>div {flex:1;min-width:0;font-size:12px}
+.az-store .az-bagdrawer__suggest-item p {margin:5px 0}
+.az-store .az-bagdrawer__suggest-item select {max-width:130px;padding:6px;border:1px solid #ddd}
+.az-store .az-bagdrawer__suggest-item .az-btn {font-size:11px;padding:10px 15px}
+
+/* Roman Urdu: Product size row ka label left aur Size Guide bilkul right. */
+.az-store .az-pdp__size-row { flex:0 0 100%;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px; }
+.az-store .az-pdp__size-row .az-link { margin-left:auto;white-space:nowrap; }
+/* Shop product cards: 4 ke bajaye 3 bade cards per row. */
+.az-store .az-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media(max-width:800px) { .az-store .az-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+.az-size-modal{width:min(920px,95vw);max-height:90vh;overflow-y:auto;padding:32px}
+.az-size-modal h2{padding-right:30px;font-size:clamp(20px,2.2vw,30px)}
+.az-size-disclaimer{font-size:12px;color:#665b49;background:#f7f3ec;padding:10px 12px;margin:18px 0}
+.az-size-units{display:flex;gap:12px;justify-content:center;align-items:center;margin:20px 0}
+.az-size-units button{background:none;border:0;cursor:pointer;color:#888;font-size:12px;letter-spacing:.08em}
+.az-size-units button.is-active{color:#111;font-weight:700}
+.az-size-table{margin:26px 0}.az-size-table h3{text-align:center;font-size:15px;margin-bottom:12px}.az-size-scroll{overflow-x:auto}
+.az-size-table table{width:100%;border-collapse:collapse;min-width:540px;text-align:center}
+.az-size-table th,.az-size-table td{padding:10px 8px;border:1px solid #e5e5e5;white-space:nowrap;font-size:13px}
+.az-size-table th{font-weight:700;background:#f8f8f8}.az-size-table td:first-child{font-weight:700}
+
+/* AZ refinement: object-contain retains complete garments; WebP files preserve detail. */
+.az-store .az-hero__media,.az-store .az-full-slider{background:#eeeae4}
+.az-store .az-slideshow .az-slide-img,.az-store .az-full-slide img {object-fit:contain;object-position:center;transform:none}
+.az-store .az-full-slide.is-active img{transform:none}
+.az-store .az-slideshow .az-slide-img{transition:opacity .52s ease}
+.az-store .az-full-slide{transition:opacity .55s ease}
+.az-store .az-card{border-radius:11px;overflow:hidden}
+.az-store .az-card__media{background:#f6f4f1;border-radius:11px}
+.az-store .az-card__media img{object-fit:contain;object-position:center}
+.az-store .az-card__image-link:hover .az-card__alt,.az-store .az-card__image-link:focus-visible .az-card__alt,.az-store .az-card__media:hover .az-card__alt{opacity:1}
+.az-store .az-card__tag,.az-store .az-pdp__badge{border:0;border-radius:5px;padding:6px 10px;background:#fbfaf8;color:#272727}
+.az-store .az-pdp__main,.az-store .az-pdp__thumbs button{border-radius:10px;overflow:hidden;background:#f8f7f5}
+.az-store .az-pdp__main img,.az-store .az-pdp__thumbs img{object-fit:contain}
+.az-store .az-chip{border:0;border-radius:6px;background:#f2f1ee;transition:background .2s}
+.az-store .az-size-guide-link{display:inline-flex;gap:8px;align-items:center;background:#f4f2ed;border:0;border-radius:24px;padding:10px 15px;color:#1b1b1b;font-weight:600;cursor:pointer}
+.az-store .az-size-guide-link:hover{background:#eae6df}
+.az-store .az-size-modal{width:min(850px,calc(100vw - 32px));max-height:min(92dvh,900px);overflow-y:auto;overflow-x:hidden;border-radius:14px;padding:clamp(18px,3vw,34px);box-sizing:border-box}
+.az-store .az-size-modal h2{text-align:center;margin:0;font-size:clamp(23px,3vw,32px)}
+.az-store .az-size-modal>.az-muted{text-align:center}
+.az-store .az-size-modal .az-modal__close{top:12px;right:12px;border-radius:50%;background:#f1f1ef;display:grid;place-items:center;cursor:pointer}
+.az-store .az-size-modal .az-modal__close:hover{background:#e5e2dd}
+.az-store .az-size-scroll{overflow:visible;width:100%}
+.az-store .az-size-table table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse}
+.az-store .az-size-table th,.az-store .az-size-table td{white-space:normal;overflow-wrap:anywhere;padding:clamp(5px,1.2vw,11px) 3px;text-align:center;font-size:clamp(9px,1.2vw,13px)}
+.az-store .az-size-table h3{margin-bottom:15px}
+.az-store .az-size-table{margin:20px 0}
+.az-store .az-size-disclaimer{margin:10px 0;font-size:11px}
+.az-pdp__viewer{position:relative}
+.az-gallery-arrow,.az-gallery-zoom{position:absolute;z-index:2;display:grid;place-items:center;background:#ffffffd9;border:0;border-radius:50%;width:40px;height:40px;cursor:pointer;box-shadow:0 3px 13px #0002}
+.az-gallery-arrow{top:50%;transform:translateY(-50%)}
+.az-gallery-arrow--left{left:14px}.az-gallery-arrow--right{right:14px}
+.az-gallery-zoom{right:14px;bottom:14px}
+.az-gallery-count{position:absolute;bottom:16px;left:14px;font-size:12px;border-radius:15px;background:#ffffffdd;padding:6px 12px}
+.az-image-lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:#111e;padding:48px 55px}
+.az-image-lightbox img{display:block;max-width:100%;max-height:90dvh;object-fit:contain;border-radius:7px}
+.az-image-lightbox button{position:absolute;border:0;color:#111;background:#fff;border-radius:50%;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+.az-image-lightbox__close{right:20px;top:20px}.az-image-lightbox__prev{left:10px;top:50%}.az-image-lightbox__next{right:10px;top:50%}
+@media(max-width:640px){.az-store .az-size-modal{padding:15px 10px}.az-store .az-size-table th,.az-store .az-size-table td{font-size:9px;padding:7px 2px}.az-store .az-size-modal .az-modal__close{right:7px;top:7px;width:32px;height:32px}}
+
+/* On desktop show the complete size table without a nested scroll region. */
+@media(min-width:700px) and (min-height:700px){.az-store .az-size-modal{max-height:none;overflow:visible}.az-store .az-size-modal .az-size-table{margin:12px 0}.az-store .az-size-modal .az-size-table th,.az-store .az-size-modal .az-size-table td{padding:7px 4px}}
+
+/* ================================================================
+   ROMAN URDU: FULL BLEED IMAGE FIX (21 Nov 2026)
+   Pehle jo blur / glass sides thay woh intentionally hata diye hain.
+   'cover' se image poore box ko bharti hai; khaali sides nahi rehti.
+   IMPORTANT: Source photo ka ratio box jaisa na ho to thori image
+   crop zaroor hoti hai. Bina crop aur bina khaali sides ke dono
+   shartein different aspect ratios mein saath possible nahi hoti.
+
+   RECOMMENDED NAYI PHOTOS (WebP):
+   Hero right panel: 1200x1200 (1:1) ya 1100x1000 near-square
+   Full-screen slider: 1920x1080 (16:9), subject center me ho
+   Product cards: 960x1200 (4:5), model poora photo me ho
+   Wedding tiles: 900x1200 (3:4)
+   Essentials tiles: 1000x1000 (1:1)
+   Made-to-measure: 1200x900 (4:3)
+   Gallery: 900x1125 (4:5)
+   ================================================================ */
+/* Roman Urdu: HERO 1:1, image pure right box mein edge-to-edge. */
+.az-store .az-hero__media {background:#e9e4df;}
+.az-store .az-slideshow .az-slide-img {
+  width:100%;height:100%;object-fit:cover;object-position:center 38%;
+  background:transparent;transform:none;
+}
+.az-store .az-slideshow .az-slide-img.is-active {transform:none;}
+/* Roman Urdu: FULL SLIDER ko 16:9 image dein; poori screen cover ho. */
+.az-store .az-full-slider {background:#312d29;}
+.az-store .az-full-slide img {
+  width:100%;height:100%;object-fit:cover;object-position:center 36%;
+  background:transparent;transform:none;
+}
+/* Roman Urdu: PRODUCT CARD 4:5 - blur nahi, image frame ko cover kare. */
+.az-store .az-card__media {aspect-ratio:4/5;background:#f3f0ed;}
+.az-store .az-card__media img {object-fit:cover;object-position:center 33%;background:transparent;}
+/* Roman Urdu: WEDDING aur ESSENTIALS cards mein bhi koi blank sides nahi. */
+.az-store .az-tile__media img {object-fit:cover;object-position:center 30%;background:transparent;}
+/* Roman Urdu: MTM aur editorial images ko full frame mein fit karo. */
+.az-store .az-mtm__media img,.az-store .az-editorial__tile img {
+  object-fit:cover;object-position:center;background:transparent;
+}
+/* Roman Urdu: Product detail aur image zoom par poori image dikhani hai.
+   Yeh exceptions hain kyunki product ki detail cut nahi honi chahiye. */
+.az-store .az-pdp__main img,.az-store .az-pdp__thumbs img,
+.az-store .az-quick__panel>img {object-fit:contain;}
+/* Roman Urdu: Mobile par bhi slider ko cover karo, contain nahi. */
+@media(max-width:700px){
+  .az-store .az-full-slide img {object-fit:cover;object-position:center 32%;background:transparent;}
+  .az-store .az-slideshow .az-slide-img {object-fit:cover;object-position:center 30%;}
+}
+
+/* ================================================================
+   ROMAN URDU: MOBILE IMAGE SIZE FIX - 21 Nov 2026
+   1) Full editorial slider: desktop 100vh hai. Mobile par 60svh kiya
+      taki Sherwani collection tile ki height ke qareeb dikhay.
+   2) Mobile par minimum 540px wali purani restriction hatayi hai.
+   3) Eastern / Western essentials: 4:3 se 1:1 ratio sirf mobile par,
+      takay images zyada bari aur dono cards equal height mein dikhain.
+   4) Wedding aur doosri collection cards ki size change nahi hoti.
+   5) Image full box cover karti hai; koi glass / blur layer nahi hai.
+   ================================================================ */
+@media (max-width: 700px) {
+  .az-store .az-full-slider {
+    height: 60vh;
+    height: 60svh;
+    min-height: 0;
+  }
+  .az-store .az-full-overlay {
+    padding-bottom: clamp(35px, 7svh, 65px);
+  }
+  .az-store .az-full-overlay h2 {
+    font-size: clamp(28px, 9vw, 44px);
+    margin: 8px 0 14px;
+  }
+  .az-store .az-full-prev,
+  .az-store .az-full-next {
+    width: 38px;
+    height: 38px;
+  }
+  .az-store .az-essentials-section .az-tile__media {
+    aspect-ratio: 1 / 1;
+  }
+}
